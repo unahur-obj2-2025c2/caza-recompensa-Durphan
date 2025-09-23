@@ -11,13 +11,7 @@ public class Profugo implements IProfugo {
 
     public Profugo(boolean estaNervioso, int habilidad) {
         this.estaNervioso = estaNervioso;
-        if (habilidad < 0) {
-            throw new IllegalArgumentException("La habilidad no puede ser menor a 0");
-        }
-        if (habilidad > 100) {
-            throw new IllegalArgumentException("La habilidad no puede ser mayor a 100");
-        }
-        this.habilidad = habilidad;
+        setHabilidad(habilidad);
     }
 
     public void reducirInocencia(int reduccion) {
@@ -62,6 +56,17 @@ public class Profugo implements IProfugo {
 
     public void calmar() {
         estaNervioso = false;
+    }
+
+    private void setHabilidad(int habilidad) {
+        if (habilidad < 0) {
+            throw new IllegalArgumentException("La habilidad no puede ser menor a 0");
+        }
+        if (habilidad > 100) {
+            this.habilidad = 100;
+            return;
+        }
+        this.habilidad = habilidad;
     }
 
 }

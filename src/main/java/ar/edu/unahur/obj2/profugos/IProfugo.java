@@ -19,4 +19,5 @@ public interface IProfugo {
     void ponerNervioso();
 
     void calmar();
+
 }
