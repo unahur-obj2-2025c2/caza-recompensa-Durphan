@@ -34,6 +34,10 @@ class CazadorTest {
         Cazador cazadorConZona = new Cazador(CazadorUrbano.getInstancia(), rioHudson);
         assertEquals(rioHudson, cazadorConZona.getZona());
         assertTrue(cazadorConZona.getTipoCazador() instanceof CazadorUrbano);
+        Cazador cazadorConZonaYExperiencia = new Cazador(CazadorRural.getInstancia(), rioHudson, 150);
+        assertEquals(rioHudson, cazadorConZonaYExperiencia.getZona());
+        assertEquals(150, cazadorConZonaYExperiencia.getExperiencia());
+        assertTrue(cazadorConZonaYExperiencia.getTipoCazador() instanceof CazadorRural);
     }
 
     @BeforeEach
@@ -131,6 +135,7 @@ class CazadorTest {
         assertEquals(98, cazadorClintEastwoodSigiloso.getExperiencia());
         assertFalse(arthurMorgan.estaNervioso());
         assertFalse(johnMarston.estaNervioso());
+        assertEquals(2, cazadorClintEastwoodSigiloso.getProfugosIntimidados().size());
     }
 
     @Test
@@ -142,7 +147,7 @@ class CazadorTest {
         assertEquals(10, johnMarston.getInocencia());
         assertTrue(cazadorClintEastwoodSigiloso.puedeCapturar(johnMarston));
         cazadorClintEastwoodSigiloso.hacerPatrullaje();
-        assertEquals(1, cazadorClintEastwoodSigiloso.getProfugosCapturados());
+        assertEquals(1, cazadorClintEastwoodSigiloso.getProfugosCapturados().size());
         assertEquals(1, rioHudson.getProfugos().size());
         assertEquals(1000, cazadorClintEastwoodSigiloso.getExperiencia());
     }
@@ -156,7 +161,7 @@ class CazadorTest {
         assertEquals(10, arthurMorgan.getInocencia());
         assertTrue(cazadorRamboUrbano.puedeCapturar(arthurMorgan));
         cazadorRamboUrbano.hacerPatrullaje();
-        assertEquals(1, cazadorRamboUrbano.getProfugosCapturados());
+        assertEquals(1, cazadorRamboUrbano.getProfugosCapturados().size());
         assertEquals(1, rioHudson.getProfugos().size());
         assertEquals(1000, cazadorRamboUrbano.getExperiencia());
     }
@@ -170,8 +175,10 @@ class CazadorTest {
         assertEquals(10, johnMarston.getInocencia());
         assertTrue(cazadorJohnDoeRural.puedeCapturar(johnMarston));
         cazadorJohnDoeRural.hacerPatrullaje();
-        assertEquals(1, cazadorJohnDoeRural.getProfugosCapturados());
+        assertEquals(1, cazadorJohnDoeRural.getProfugosCapturados().size());
         assertEquals(1, rioHudson.getProfugos().size());
+        assertEquals(1, cazadorJohnDoeRural.getProfugosIntimidados().size());
         assertEquals(1000, cazadorJohnDoeRural.getExperiencia());
     }
+
 }

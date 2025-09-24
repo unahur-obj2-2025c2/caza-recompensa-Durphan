@@ -1,5 +1,7 @@
 package ar.edu.unahur.obj2.cazadores;
 
+import java.util.List;
+
 import ar.edu.unahur.obj2.profugos.IProfugo;
 import ar.edu.unahur.obj2.zonas.IZona;
 
@@ -16,4 +18,7 @@ public interface ICazador {
 
     void intentarCapturar(IProfugo profugo);
 
+    List<IProfugo> getProfugosCapturados();
+
+    List<IProfugo> getProfugosIntimidados();
 }
