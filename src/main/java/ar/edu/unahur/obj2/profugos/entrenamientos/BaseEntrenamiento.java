@@ -2,7 +2,7 @@ package ar.edu.unahur.obj2.profugos.entrenamientos;
 
 import ar.edu.unahur.obj2.profugos.IProfugo;
 
-public class BaseEntrenamiento implements IProfugo {
+public abstract class BaseEntrenamiento implements IProfugo {
     private IProfugo base;
 
     public BaseEntrenamiento(IProfugo base) {

@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unahur.obj2.profugos.entrenamientos.ArtesMarciales;
-import ar.edu.unahur.obj2.profugos.entrenamientos.BaseEntrenamiento;
 import ar.edu.unahur.obj2.profugos.entrenamientos.Elite;
 import ar.edu.unahur.obj2.profugos.entrenamientos.ProteccionLegal;
 
@@ -190,19 +189,5 @@ class ProfugoTest {
         assertFalse(profugo.estaNervioso());
     }
 
-    @Test
-    void baseEntrenamientoPuedeGestionarNerviosismoYHabilidad() {
-        IProfugo profugo = new Profugo(true, 50);
-        IProfugo base = new BaseEntrenamiento(profugo);
-        assertTrue(base.estaNervioso());
-        base.calmar();
-        assertFalse(base.estaNervioso());
-        base.ponerNervioso();
-        assertTrue(base.estaNervioso());
-        assertEquals(50, base.getHabilidad());
-        base.aumentarHabilidad(30);
-        assertEquals(80, base.getHabilidad());
-        base.disminuirHabilidad(90);
-        assertEquals(0, base.getHabilidad());
-    }
+
 }
